@@ -12,7 +12,7 @@ def fibonacci():
     ant = 0
     x = 0
     resp = "0,"
-    while x <= 50:
+    while x <=50:
 
         y = prox
         prox = prox + ant
