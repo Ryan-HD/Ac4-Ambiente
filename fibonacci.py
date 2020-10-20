@@ -3,20 +3,23 @@ from flask import Flask, jsonify, request
 from math import sqrt
 
 app = Flask(__name__)
+
 @app.route('/')
 def fibonacci():
-    prox = 1
-    ant = 0
-    x = 0
-    resp = "0,"
-    while x <= 50:
+   proximo = 1
+   anterior = 0
+   limite = 50
+   found = 0
+   resposta = "0,"
+   while (found < limite):
+       tmp = proximo
+       proximo = proximo + anterior
+       anterior = tmp
+       found=found+1
+       resposta+= str(proximo) + ","
 
-        y = prox
-        prox = prox + ant
-        ant = y
-        x += 1
-        resp += str(prox) + ","
-    return resp
+
+   return resposta
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
